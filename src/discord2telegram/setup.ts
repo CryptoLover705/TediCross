@@ -413,17 +413,17 @@ export function setup(
 				if (!settings.discord.suppressThisIsPrivateBotMessage) {
 					if (message.type !== MessageType.Default && message.type !== MessageType.Reply) return;
 
-					message
-						.reply(
-							"This is an instance of a TediCross bot, bridging a chat in Telegram with one in Discord. " +
-								"If you wish to use TediCross yourself, please download and create an instance. " +
-								"See https://github.com/TediCross/TediCross"
-						)
-						// Delete it again after some time
-						.then(sleepOneMinute)
-						.then((message: any) => message.delete())
-						.catch(ignoreAlreadyDeletedError as any)
-						.then(() => antiInfoSpamSet.delete(message.channel.id));
+					// message
+					// 	// .reply(
+					// 	// 	"This is an instance of a TediCross bot, bridging a chat in Telegram with one in Discord. " +
+					// 	// 		"If you wish to use TediCross yourself, please download and create an instance. " +
+					// 	// 		"See https://github.com/TediCross/TediCross"
+					// 	// )
+					// 	// Delete it again after some time
+					// 	.then(sleepOneMinute)
+					// 	.then((message: any) => message.delete())
+					// 	.catch(ignoreAlreadyDeletedError as any)
+					// 	.then(() => antiInfoSpamSet.delete(message.channel.id));
 				} else {
 					antiInfoSpamSet.delete(message.channel.id);
 				}
